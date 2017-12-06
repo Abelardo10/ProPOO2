@@ -5,8 +5,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="header.html" %>
         <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
- 
-
         <title>Registrar Cliente</title>
     </head>
     <body style="overflow-y: hidden;">  
@@ -70,12 +68,9 @@
             $(document).ready(function(){
                 
                try {
-                var respuesta='${mensaje}';
-                
+                var respuesta='${mensaje}';                
                 if(respuesta==""){}
                 else{alert(respuesta);}
-                
-                
                 } catch (e) {
 
                 }               
