@@ -1,10 +1,10 @@
 SMAP
-Productos_jsp.java
+RegistrarProducto_jsp.java
 JSP
 *S JSP
 *F
-+ 0 Productos.jsp
-Productos.jsp
++ 0 RegistrarProducto.jsp
+RegistrarProducto.jsp
 + 1 header.html
 header.html
 + 2 navar.html

@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */
 package Controllers;
-
-import Models.Producto;
+import Models.Trabajadores;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,8 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ACER
  */
-@WebServlet(name = "Productos", urlPatterns = {"/Productos"})
-public class ProductosController extends HttpServlet {
+public class TrabajadoresController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,26 +30,33 @@ public class ProductosController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
+        
          String operacion=request.getParameter("btnSubmit");
         
         switch(operacion)
         {
             case "Registrar":
-                Producto Producto=new Producto();
+                Trabajadores Trabajadores=new Trabajadores();
                 
-                Producto.setNombre(request.getParameter("txtNombre"));
-                Producto.setDescripcion(request.getParameter("txtDescripcion"));
-                Producto.setUnidad_medida(request.getParameter("txtUnidad"));
-                Producto.setPrecio_venta(request.getParameter("txtPrecio"));
+                Trabajadores.setNombres(request.getParameter("txtNombres"));
+                Trabajadores.setApellidos(request.getParameter("txtApellidos"));
+                Trabajadores.setTipo_documento(request.getParameter("ddlTipoDocumento"));
+                Trabajadores.setNum_documento(request.getParameter("txtNumDocumento"));
+                Trabajadores.setDireccion(request.getParameter("txtDireccion"));
+                Trabajadores.setTelefono(request.getParameter("txtTelefono"));
+                Trabajadores.setEmail(request.getParameter("txtEmail"));
+                Trabajadores.setSueldo(request.getParameter("txtSueldo"));
+                Trabajadores.setRol(request.getParameter("txtRol"));
+                Trabajadores.setLogin(request.getParameter("txtLogin"));
+                Trabajadores.setPassword(request.getParameter("txtPassword"));
                
                                 
-                String result= Producto.insertar(Producto);
+                String result= Trabajadores.insertar(Trabajadores);
                 
                 // para crear variables que se envian por el response
                 request.setAttribute("mensaje",result);
                 //para redicionar y enviar las variables
-                request.getRequestDispatcher("RegistrarProducto.jsp").forward(request, response);
+                request.getRequestDispatcher("RegistrarTrabajadores.jsp").forward(request, response);
                 
                 break;
                 

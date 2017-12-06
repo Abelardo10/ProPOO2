@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class Productos_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class RegistrarProducto_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -60,10 +60,10 @@ public final class Productos_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<script src=\"js/jquery-3.2.1.min.js\" ></script>");
       out.write("\n");
       out.write("        \n");
-      out.write("        <title>Productos</title>\n");
+      out.write("        <title>Registro de Productos</title>\n");
       out.write("    </head>\n");
       out.write("    <body style=\"overflow-y: hidden;\">\n");
-      out.write("        <form id=\"formCliente\" method=\"POST\" action=\"Productos\">\n");
+      out.write("        <form id=\"formProductos\" method=\"POST\" action=\"Productos\">\n");
       out.write("            <div>\n");
       out.write("                ");
       out.write("\n");
@@ -104,7 +104,7 @@ public final class Productos_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("            <div class=\"contnt-header\">\n");
       out.write("                <h1 style=\"text-align:left\">\n");
-      out.write("                    Productos\n");
+      out.write("                    Registro de Productos\n");
       out.write("                </h1>\n");
       out.write("            </div>\n");
       out.write("\n");

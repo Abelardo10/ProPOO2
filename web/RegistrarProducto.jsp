@@ -1,5 +1,5 @@
 <%-- 
-    Document   : Productos
+    Document   : RegistrarProductos
     Created on : 5/12/2017, 10:50:31 PM
     Author     : ACER
 --%>
@@ -11,17 +11,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="header.html" %>
         <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-        <title>Productos</title>
+        <title>Registro de Productos</title>
     </head>
     <body style="overflow-y: hidden;">
-        <form id="formCliente" method="POST" action="Productos">
+        <form id="formProductos" method="POST" action="Productos">
             <div>
                 <%@include file="navar.html" %>  
             </div>
 
             <div class="contnt-header">
                 <h1 style="text-align:left">
-                    Productos
+                    Registro de Productos
                 </h1>
             </div>
 
