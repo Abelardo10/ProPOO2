@@ -138,19 +138,19 @@ public class Trabajadores {
         lista = new ArrayList<Trabajadores>();
         Trabajadores t = new Trabajadores();
 
-        query = "SELECT t.trabajadoresId,"
-                + "t.nombres,"
-                + "t.apellidos,"
-                + "t.tipo_documento,"
-                + "t.num_documento,"
-                + "t.direccion,"
-                + "t.telefono,"
-                + "t.email,"
-                + "t.sueldo,"
-                + "t.rol,"
-                + "t.login,"
-                + "t.password"
-                + "FROM trabajadores t";
+        query = "SELECT trabajadoresId,"
+                + " nombres,"
+                + " apellidos,"
+                + " tipo_documento,"
+                + " num_documento,"
+                + " direccion,"
+                + " telefono,"
+                + " email,"
+                + " sueldo,"
+                + " rol,"
+                + " login,"
+                + " password"
+                + " FROM trabajadores ";
 
         try {
             PreparedStatement st = con.prepareStatement(query);
@@ -158,6 +158,8 @@ public class Trabajadores {
             ResultSet rs = st.executeQuery();
 
             while (rs.next()) {
+
+                t = new Trabajadores();
                 t.setTrabajadoresId(rs.getInt("trabajadoresId"));
                 t.setNombres(rs.getString("nombres"));
                 t.setApellidos(rs.getString("apellidos"));
@@ -178,6 +180,58 @@ public class Trabajadores {
             lista = null;
         }
         return lista;
+    }
+
+    /**
+     * Obtiene un objeto trabajador con la informacion de un trabajador que
+     * concuerde con la identificacion
+     *
+     * @param identificacion
+     * @return
+     */
+    public Trabajadores getTrabajadores(int trabajadoresId) {
+
+        Trabajadores t = new Trabajadores();
+
+        query = "SELECT [trabajadoresId]"
+                + ",[nombres]"
+                + ",[apellidos]"
+                + ",[tipo_documento]"
+                + ",[num_documento]"
+                + ",[direccion]"
+                + ",[telefono]"
+                + ",[email] "
+                + ",[sueldo] "
+                + ",[rol] " 
+                + ",[login] " 
+                + ",[password] " 
+                + "FROM [Trabajadores] WHERE trabajadoresId=" + trabajadoresId;
+
+        try {
+            PreparedStatement st = con.prepareStatement(query);
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                t.setTrabajadoresId(rs.getInt("trabajadoresId"));
+                t.setNombres(rs.getString("nombres"));
+                t.setApellidos(rs.getString("apellidos"));
+                t.setTipo_documento(rs.getString("tipo_documento"));
+                t.setNum_documento(rs.getString("num_documento"));
+                t.setDireccion(rs.getString("direccion"));
+                t.setTelefono(rs.getString("telefono"));
+                t.setEmail(rs.getString("email"));
+                t.setSueldo(rs.getString("sueldo"));
+                t.setRol(rs.getString("rol"));
+                t.setLogin(rs.getString("login"));
+                t.setPassword(rs.getString("password"));
+            }
+
+        } catch (Exception e) {
+            t = null;
+        }
+        return t;
+
     }
 
     //=================INSERTAR DATOS  ====================================================
@@ -229,23 +283,25 @@ public class Trabajadores {
         }
         return result;
     }
-
+         
+    
+    
     //=======================ACTUALIZAR DATOS===============================================
     public String actualizar(int trabajadorId, Trabajadores datosTrabajador) {
 
         String result = "";
         query = "UPDATE trabajadores "
-                + "SET nombres=?,"
-                + "apellidos=?,"
-                + "tipo_documento=?,"
-                + "num_documento=?,"
-                + "direccion=?,"
-                + "telefono=?,"
-                + "email=?,"
-                + "rol=?,"
-                + "login=?,"
-                + "password=?"
-                + "WHERE trabajadoresId=?";
+                + " SET nombres=?,"
+                + " apellidos=?,"
+                + " tipo_documento=?,"
+                + " num_documento=?,"
+                + " direccion=?,"
+                + " telefono=?,"
+                + " email=?,"
+                + " rol=?,"
+                + " login=?,"
+                + " password=?"
+                + " WHERE trabajadoresId=?";
 
         try {
 
@@ -261,6 +317,7 @@ public class Trabajadores {
             pst.setString(8, datosTrabajador.getRol());
             pst.setString(9, datosTrabajador.getLogin());
             pst.setString(10, datosTrabajador.getPassword());
+             pst.setInt(11, datosTrabajador.getTrabajadoresId());
 
             int n = pst.executeUpdate();
 

@@ -4,10 +4,12 @@
  * and open the template in the editor.
  */
 package Controllers;
+
 import Models.Trabajadores;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,37 +32,62 @@ public class TrabajadoresController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-         String operacion=request.getParameter("btnSubmit");
-        
-        switch(operacion)
-        {
+
+        String operacion = request.getParameter("btnSubmit");
+
+        switch (operacion) {
             case "Registrar":
-                Trabajadores Trabajadores=new Trabajadores();
                 
-                Trabajadores.setNombres(request.getParameter("txtNombres"));
-                Trabajadores.setApellidos(request.getParameter("txtApellidos"));
-                Trabajadores.setTipo_documento(request.getParameter("ddlTipoDocumento"));
-                Trabajadores.setNum_documento(request.getParameter("txtNumDocumento"));
-                Trabajadores.setDireccion(request.getParameter("txtDireccion"));
-                Trabajadores.setTelefono(request.getParameter("txtTelefono"));
-                Trabajadores.setEmail(request.getParameter("txtEmail"));
-                Trabajadores.setSueldo(request.getParameter("txtSueldo"));
-                Trabajadores.setRol(request.getParameter("txtRol"));
-                Trabajadores.setLogin(request.getParameter("txtLogin"));
-                Trabajadores.setPassword(request.getParameter("txtPassword"));
-               
-                                
-                String result= Trabajadores.insertar(Trabajadores);
-                
+                Trabajadores trabajadores = new Trabajadores();
+
+                trabajadores.setNombres(request.getParameter("txtNombres"));
+                trabajadores.setApellidos(request.getParameter("txtApellidos"));
+                trabajadores.setTipo_documento(request.getParameter("ddlTipoDocumento"));
+                trabajadores.setNum_documento(request.getParameter("txtNumDocumento"));
+                trabajadores.setDireccion(request.getParameter("txtDireccion"));
+                trabajadores.setTelefono(request.getParameter("txtTelefono"));
+                trabajadores.setEmail(request.getParameter("txtEmail"));
+                trabajadores.setSueldo(request.getParameter("txtSueldo"));
+                trabajadores.setRol(request.getParameter("txtRol"));
+                trabajadores.setLogin(request.getParameter("txtLogin"));
+                trabajadores.setPassword(request.getParameter("txtPassword"));
+
+                String result = trabajadores.insertar(trabajadores);
+
                 // para crear variables que se envian por el response
-                request.setAttribute("mensaje",result);
+                request.setAttribute("mensaje", result);
                 //para redicionar y enviar las variables
                 request.getRequestDispatcher("RegistrarTrabajadores.jsp").forward(request, response);
-                
+
                 break;
-                
+
             case "Actualizar":
+                
+                trabajadores = new Trabajadores();
+
+                trabajadores.setTrabajadoresId(Integer.parseInt(request.getParameter("txtTrabajadoresId")));
+                trabajadores.setNum_documento(request.getParameter("txtNumDocumento"));
+                trabajadores.setNombres(request.getParameter("txtNombres"));
+                trabajadores.setApellidos(request.getParameter("txtApellidos"));
+                trabajadores.setTipo_documento(request.getParameter("ddlTipoDocumento"));
+                trabajadores.setDireccion(request.getParameter("txtDireccion"));
+                trabajadores.setTelefono(request.getParameter("txtTelefono"));
+                 try {
+                    trabajadores.setEmail(request.getParameter("txtEmail"));
+                } catch (Exception e) {
+                    trabajadores.setEmail("");
+                }
+                trabajadores.setSueldo(request.getParameter("txtSueldo"));
+                trabajadores.setRol(request.getParameter("txtRol"));
+                trabajadores.setLogin(request.getParameter("txtLogin"));
+                trabajadores.setPassword(request.getParameter("txtPassword"));
+
+                result = trabajadores.actualizar(trabajadores.getTrabajadoresId(), trabajadores);
+
+                // para crear variables que se envian por el response
+                request.setAttribute("result", result);
+                //para redicionar y enviar las variables
+                request.getRequestDispatcher("TablaTrabajador.jsp").forward(request, response);
                 break;
         }
     }
