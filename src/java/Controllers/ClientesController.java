@@ -56,13 +56,30 @@ public class ClientesController extends HttpServlet {
                 String result= cliente.insertar(cliente);
                 
                 // para crear variables que se envian por el response
-                request.setAttribute("mensaje",result);
+                request.setAttribute("result",result);
                 //para redicionar y enviar las variables
                 request.getRequestDispatcher("RegistrarCliente.jsp").forward(request, response);
                 
                 break;
                 
             case "Actualizar":
+        cliente=new Clientes();
+        
+        cliente.setClienteId(Integer.parseInt(request.getParameter("txtClienteId")));
+        cliente.setNum_documento(request.getParameter("txtNumDocumento"));
+        cliente.setNombres(request.getParameter("txtNombres"));
+        cliente.setApellidos(request.getParameter("txtApellidos"));
+        cliente.setTipo_documento(request.getParameter("ddlTipoDocumento"));
+        cliente.setDireccion(request.getParameter("txtDireccion"));
+        cliente.setTelefono(request.getParameter("txtTelefono"));
+        cliente.setEmail(request.getParameter("txtEmail"));
+        
+         result=  cliente.actualizar(cliente.getClienteId(), cliente);
+        
+        // para crear variables que se envian por el response
+        request.setAttribute("result",result);
+        //para redicionar y enviar las variables
+        request.getRequestDispatcher("TablaClientes.jsp").forward(request, response);
                 break;
         }
         

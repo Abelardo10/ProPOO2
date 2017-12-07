@@ -119,7 +119,10 @@ public class Clientes {
     private Connection con=conexion.getConexion();
     private String query="";
     
-    
+    /**
+     * Retorna la lista de todos los clientes
+     * @return 
+     */
    public ArrayList<Clientes> getClientes() {
         ArrayList<Clientes> lista;
         
@@ -134,7 +137,7 @@ public class Clientes {
         ",[direccion]" +
         ",[telefono]" +
         ",[email] " +
-        "FROM [basereserva]";
+        "FROM [Clientes]";
 
         try {
             PreparedStatement st = con.prepareStatement(query);
@@ -142,6 +145,7 @@ public class Clientes {
             ResultSet rs = st.executeQuery();
 
             while (rs.next()) {
+                clientes=new Clientes();
                 clientes.setClienteId(rs.getInt("ClienteId"));               
                 clientes.setNombres(rs.getString("nombres"));
                 clientes.setApellidos(rs.getString("apellidos"));
@@ -160,6 +164,53 @@ public class Clientes {
             lista=null;            
         }
          return lista;
+        
+        }
+   
+   
+   
+   /**
+    * Obtiene un objeto cliente
+    * con la informacion de un cliente 
+    * que concuerde con la identificacion
+    * @param identificacion
+    * @return 
+    */
+   public Clientes getClientes(int clienteId) {
+       
+        Clientes clientes=new Clientes();
+        
+        query ="SELECT [clienteId]" +
+        ",[nombres]" +
+        ",[apellidos]" +
+        ",[tipo_documento]" +
+        ",[num_documento]" +
+        ",[direccion]" +
+        ",[telefono]" +
+        ",[email] " +
+        "FROM [clientes] WHERE clienteId="+clienteId;
+
+        try {
+            PreparedStatement st = con.prepareStatement(query);
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                clientes.setClienteId(rs.getInt("ClienteId"));               
+                clientes.setNombres(rs.getString("nombres"));
+                clientes.setApellidos(rs.getString("apellidos"));
+                clientes.setTipo_documento(rs.getString("tipo_documento"));
+                clientes.setNum_documento(rs.getString("num_documento"));
+                clientes.setDireccion(rs.getString("direccion"));
+                clientes.setTelefono(rs.getString("telefono"));
+                clientes.setEmail(rs.getString("email"));                                                            
+            }
+           
+
+        } catch (Exception e) {
+            clientes=null;            
+        }
+         return clientes;
         
         }
         
@@ -201,10 +252,16 @@ public class Clientes {
             
             
      //=======================ACTUALIZAR DATOS===============================================
+    /**
+     * Actualiza la informacion de un Cliente
+     * @param ClienteId
+     * @param datosCliente
+     * @return 
+     */
     public String actualizar(int ClienteId,Clientes datosCliente) {
       
         String result="";
-        query = "UPDATE persona "
+        query = "UPDATE clientes "
                 + "SET nombres=?,"
                 + "apellidos=?,"
                 + "tipo_documento=?,"
