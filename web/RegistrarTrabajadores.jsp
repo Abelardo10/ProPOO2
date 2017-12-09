@@ -19,83 +19,80 @@
                 <%@include file="navar.html" %>  
             </div>
 
-            <div class="contnt-header">
-                <h1 style="text-align:left">
-                    Registro de Trabajadores
-                </h1>
-            </div>
+            <div class="container" style="width: 80%">
 
-            <div class="content"> <!-- Inici del Primer panel -->
-                <div class="row">
-                    <div class="col-lg-8" style="margin-top: 2em;"> <!-- Primer panel-->
-                        <div class="box box-primary">
-                            <div class="box-body"><!--inivio de la clase box-body -->
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input type="text" name="txtNombres" required="Campo requerido" class="form-control" placeholder="Nombres" />
-                                    </div>  
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Registro de Trabajadores</div>
+                    <div class="panel-body" style="height:400px; overflow-y: scroll; ">
+                        <div class="row">
+                            <div class="col">
+                                <div class="col-lg-6" style="margin-top: 2em;"> <!-- Primer panel-->                                
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <input type="text" name="txtNombres" required="Campo requerido" class="form-control" placeholder="Nombres" />
+                                        </div>  
 
-                                    <div class="form-group">
-                                        <input type="text" name="txtApellidos" required="Campo requerido" class="form-control" placeholder="Apellidos" />
-                                    </div> 
+                                        <div class="form-group">
+                                            <input type="text" name="txtApellidos" required="Campo requerido" class="form-control" placeholder="Apellidos" />
+                                        </div> 
 
-                                    <div>
-                                        <select name="ddlTipoDocumento" class="form-control">
-                                            <option>CC</option>
-                                            <option>CE</option>
-                                            <option>Pasaporte</option>
-                                        </select> 
-                                    </div>                    
+                                        <div>
+                                            <select name="ddlTipoDocumento" class="form-control">
+                                                <option>CC</option>
+                                                <option>CE</option>
+                                                <option>Pasaporte</option>
+                                            </select> 
+                                        </div>                    
 
-                                    <div class="form-group" style="margin-top: 1em;">
-                                        <input type="text" name="txtNumDocumento" required="Campo requerido" class="form-control" placeholder="Numero de Documento" />
-                                    </div>  
+                                        <div class="form-group" style="margin-top: 1em;">
+                                            <input type="text" name="txtNumDocumento" required="Campo requerido" class="form-control" placeholder="Numero de Documento" />
+                                        </div>  
 
-                                    <div class="form-group">
-                                        <input type="text" name="txtDireccion" required="Campo requerido" class="form-control" placeholder="Dirección" />
-                                    </div> 
+                                        <div class="form-group">
+                                            <input type="text" name="txtDireccion" required="Campo requerido" class="form-control" placeholder="Dirección" />
+                                        </div> 
 
-                                    <div class="form-group">
-                                        <input type="number" name="txtTelefono" required="Campo requerido" class="form-control" placeholder="Teléfono" />
-                                    </div> 
+                                        <div class="form-group">
+                                            <input type="number" name="txtTelefono" required="Campo requerido" class="form-control" placeholder="Teléfono" />
+                                        </div> 
 
 
-                                    <div class="form-group">
-                                        <input type="submit" value="Registrar" name="btnSubmit"  class="btn btn-primary" Width="50%"/>
+                                        <div class="form-group">
+                                            <input type="submit" value="Registrar" name="btnSubmit"  class="btn btn-primary" Width="50%"/>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="content"> <!-- Inici del segundo panel -->
+                            </div>
+                            <div class="col">
+                                <div class="col-lg-6" style="margin-top: 2em;"> <!-- Primer panel--> 
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <input type="email" name="txtEmail" required="Campo requerido" class="form-control" placeholder="Email" />
+                                        </div>                              
 
-                                    <div class="box-body"><!--inivio de la clase box-body -->
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <input type="email" name="txtEmail" required="Campo requerido" class="form-control" placeholder="Email" />
-                                            </div>                              
+                                        <div class="form-group">
+                                            <input type="number" name="txtSueldo" required="Campo requerido" class="form-control" placeholder="Sueldo" />
+                                        </div>  
 
-                                            <div class="form-group">
-                                                <input type="number" name="txtSueldo" required="Campo requerido" class="form-control" placeholder="Sueldo" />
-                                            </div>  
+                                        <div class="form-group">
+                                            <input type="text" name="txtRol" required="Campo requerido" class="form-control" placeholder="Rol" />
+                                        </div> 
 
-                                            <div class="form-group">
-                                                <input type="text" name="txtRol" required="Campo requerido" class="form-control" placeholder="Rol" />
-                                            </div> 
-
-                                            <div class="form-group">
-                                                <input type="text" name="txtLogin" required="Campo requerido" class="form-control" placeholder="Nombre de Usuario" />
-                                            </div> 
-                                            <div class="form-group">
-                                                <input type="password" name="txtPassword" required="Campo requerido" class="form-control" placeholder="Password" />
-                                            </div> 
-
-                                        </div>
-                                    </div> <!--fin de la clase box-body -->
-
+                                        <div class="form-group">
+                                            <input type="text" name="txtLogin" required="Campo requerido" class="form-control" placeholder="Nombre de Usuario" />
+                                        </div> 
+                                        <div class="form-group">
+                                            <input type="password" name="txtPassword" required="Campo requerido" class="form-control" placeholder="Password" />
+                                        </div> 
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div> <!--fin de la clase box-body -->
             </div>
+
             <script>
                 $(document).ready(function () {
 

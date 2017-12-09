@@ -19,65 +19,67 @@
                 <%@include file="navar.html" %>  
             </div>
 
-            <div class="contnt-header">
-                <h1 style="text-align:left">
-                    Registro de Productos
-                </h1>
-            </div>
 
-            <div class="content">
-                <div class="row">
-                    <div class="col-lg-6" style="margin-top: 2em;"> <!-- Primer panel-->
-                        <div class="box box-primary">
-                            <div class="box-body"><!--inivio de la clase box-body -->
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input type="text" name="txtNombre" required="Campo requerido" class="form-control" placeholder="Nombre" />
-                                    </div>  
-                               
-                                    <div class="form-group">
-                                        <input type="text" name="txtDescripcion" required="Campo requerido" class="form-control" placeholder="Descripción" />
-                                    </div> 
-                                   
-                                    <div class="form-group">
-                                        <input type="text" name="txtUnidad" required="Campo requerido" class="form-control" placeholder="Unidades" />
-                                    </div>                    
-                               
-                                    <div class="form-group">
-                                        <input type="text" name="txtPrecio" required="Campo requerido" class="form-control" placeholder="Precio" />
-                                    </div>                    
-                               
+            <div class="container" style="width: 50%">
 
-                                <div class="form-group">
-                                <input type="submit" value="Registrar" name="btnSubmit"  class="btn btn-primary" Width="50%"/>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Registro de Productos</div>
+                    <div class="panel-body" style="height:400px; overflow-y: scroll; ">
+                        <div class="row">
+                            <div class="col-lg-12" style="margin-top: 2em;"> <!-- Primer panel-->
+                                <div class="box box-primary">
+                                    <div class="box-body"><!--inivio de la clase box-body -->
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <input type="text" name="txtNombre" required="Campo requerido" class="form-control" placeholder="Nombre" />
+                                            </div>  
+
+                                            <div class="form-group">
+                                                <input type="text" name="txtDescripcion" required="Campo requerido" class="form-control" placeholder="Descripción" />
+                                            </div> 
+
+                                            <div class="form-group">
+                                                <input type="text" name="txtUnidad" required="Campo requerido" class="form-control" placeholder="Unidade de Medida" />
+                                            </div>                    
+
+                                            <div class="form-group">
+                                                <input type="text" name="txtPrecio" required="Campo requerido" class="form-control" placeholder="Precio" />
+                                            </div>                    
+
+
+                                            <div class="form-group">
+                                                <input type="submit" value="Registrar" name="btnSubmit"  class="btn btn-primary" Width="50%"/>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div> <!--fin de la clase box-body -->
+
                                 </div>
-                         
-                                    
-
-                                </div>
-                        </div> <!--fin de la clase box-body -->
-
+                            </div>
                         </div>
                     </div>
-                 </div>
-          </div>
+                </div>
+            </div>
 
-        <script>
-            $(document).ready(function () {
 
-                try {
-                    var respuesta = '${mensaje}';
-                    if (respuesta == "") {
-                    } else {
-                        alert(respuesta);
+            <script>
+                $(document).ready(function () {
+
+                    try {
+                        var respuesta = '${mensaje}';
+                        if (respuesta == "") {
+                        } else {
+                            alert(respuesta);
+                        }
+                    } catch (e) {
+
                     }
-                } catch (e) {
+                });
 
-                }
-            });
-
-        </script>
-    </form>
-</body>
-<%@include file="header.html" %>
+            </script>
+        </form>
+    </body>
+    <%@include file="header.html" %>
 </html>
