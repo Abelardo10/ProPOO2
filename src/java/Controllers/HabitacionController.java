@@ -5,12 +5,11 @@
  */
 package Controllers;
 
-import Models.Trabajadores;
+import Models.Habitacion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ACER
  */
-@WebServlet(name = "Trabajadores", urlPatterns = {"/Trabajadores"})
-public class TrabajadoresController extends HttpServlet {
+@WebServlet(name = "Habitacion", urlPatterns = {"/Habitacion"})
+public class HabitacionController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,62 +33,47 @@ public class TrabajadoresController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
         String operacion = request.getParameter("btnSubmit");
 
         switch (operacion) {
             case "Registrar":
                 
-                Trabajadores trabajadores = new Trabajadores();
+                Habitacion habitacion = new Habitacion();
 
-                trabajadores.setNombres(request.getParameter("txtNombres"));
-                trabajadores.setApellidos(request.getParameter("txtApellidos"));
-                trabajadores.setTipo_documento(request.getParameter("ddlTipoDocumento"));
-                trabajadores.setNum_documento(request.getParameter("txtNumDocumento"));
-                trabajadores.setDireccion(request.getParameter("txtDireccion"));
-                trabajadores.setTelefono(request.getParameter("txtTelefono"));
-                trabajadores.setEmail(request.getParameter("txtEmail"));
-                trabajadores.setSueldo(request.getParameter("txtSueldo"));
-                trabajadores.setRol(request.getParameter("txtRol"));
-                trabajadores.setLogin(request.getParameter("txtLogin"));
-                trabajadores.setPassword(request.getParameter("txtPassword"));
+                habitacion.setNumero(request.getParameter("txtNumero"));
+                habitacion.setPiso(request.getParameter("txtPiso"));
+                habitacion.setCaracteristicas(request.getParameter("txtCaracteristicas"));
+                habitacion.setPrecio_diario(request.getParameter("txtPrecioDiario"));
+                habitacion.setEstado(request.getParameter("txtEstado"));
+                habitacion.setTipo_habitacion(request.getParameter("txtTipoHabitacion"));                
 
-                String result = trabajadores.insertar(trabajadores);
+                String result = habitacion.insertar(habitacion);
 
                 // para crear variables que se envian por el response
                 request.setAttribute("mensaje", result);
                 //para redicionar y enviar las variables
-                request.getRequestDispatcher("RegistrarTrabajadores.jsp").forward(request, response);
+                request.getRequestDispatcher("RegistrarHabitacion.jsp").forward(request, response);
 
                 break;
 
             case "Actualizar":
                 
-                trabajadores = new Trabajadores();
+                habitacion = new Habitacion();
 
-                trabajadores.setTrabajadoresId(Integer.parseInt(request.getParameter("txtTrabajadoresId")));
-                trabajadores.setNum_documento(request.getParameter("txtNumDocumento"));
-                trabajadores.setNombres(request.getParameter("txtNombres"));
-                trabajadores.setApellidos(request.getParameter("txtApellidos"));
-                trabajadores.setTipo_documento(request.getParameter("ddlTipoDocumento"));
-                trabajadores.setDireccion(request.getParameter("txtDireccion"));
-                trabajadores.setTelefono(request.getParameter("txtTelefono"));
-                 try {
-                    trabajadores.setEmail(request.getParameter("txtEmail"));
-                } catch (Exception e) {
-                    trabajadores.setEmail("");
-                }
-                trabajadores.setSueldo(request.getParameter("txtSueldo"));
-                trabajadores.setRol(request.getParameter("txtRol"));
-                trabajadores.setLogin(request.getParameter("txtLogin"));
-                trabajadores.setPassword(request.getParameter("txtPassword"));
+                habitacion.setNumero(request.getParameter("txtNumero"));
+                habitacion.setPiso(request.getParameter("txtPiso"));
+                habitacion.setCaracteristicas(request.getParameter("txtCaracteristicas"));
+                habitacion.setPrecio_diario(request.getParameter("txtPrecioDiario"));
+                habitacion.setEstado(request.getParameter("txtEstado"));
+                habitacion.setTipo_habitacion(request.getParameter("txtTipoHabitacion"));
+                              
 
-                result = trabajadores.actualizar(trabajadores.getTrabajadoresId(), trabajadores);
+                result = habitacion.actualizar(habitacion.getHabitacionId(), habitacion);
 
                 // para crear variables que se envian por el response
                 request.setAttribute("result", result);
                 //para redicionar y enviar las variables
-                request.getRequestDispatcher("TablaTrabajador.jsp").forward(request, response);
+                request.getRequestDispatcher("TablaHabitacion.jsp").forward(request, response);
                 break;
         }
     }

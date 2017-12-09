@@ -1,13 +1,12 @@
 <%-- 
-    Document   : TablaTrabajador
-    Created on : 6/12/2017, 09:57:18 PM
+    Document   : TablaHabitacion
+    Created on : 8/12/2017, 05:58:03 PM
     Author     : ACER
 --%>
 
 <%@page import="java.util.ArrayList"%>
-<%@page import="Models.Trabajadores"%>
+<%@page import="Models.Habitacion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,16 +19,16 @@
         <%@include file="navar.html" %>
         
 <%
-    Trabajadores trabajadores=new Trabajadores();
-     ArrayList<Trabajadores> lista=trabajadores.getTrabajadores();
+    Habitacion h=new Habitacion();
+     ArrayList<Habitacion> lista=h.getHabitaciones();
     
      
      pageContext.setAttribute("lista", lista);
 %>
-        <form id="formActulizaTrabajador" action="ActualizarTrabajador.jsp" method="POST">
+        <form id="formActulizaTrabajador" action="ActualizarHabitacion.jsp" method="POST">
         <div class="container">
             <div class="row" style="margin: 1em;">
-                <h1>Atualizar Trabajador</h1>                    
+                <h1>Atualizar Habitación</h1>                    
             </div>            
             
             
@@ -37,22 +36,22 @@
                 <table class="table table-responsive table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th>Identificación</th>
-                            <th>Nombres</th>
-                            <th>Apellidos</th>
-                            <th>TrabajadorId</th>                                                       
+                            <th>Número de Habitación</th>
+                            <th>Piso de la Habitación</th>
+                            <th>Estado</th>
+                            <th>HabitacionId</th>                                                       
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach var="lista" items="${lista}">
                       
                         <tr>
-                            <td> <input type="text" name="txtNumDocumento" value="${lista.getNum_documento()}" class="form-control"  readonly/></td>
-                            <td> <input type="text" name="txtNombres" value="${lista.getNombres()}" required="" class="form-control" readonly /> </td>
-                            <td> <input type="text" name="txtApellidos" value="${lista.getApellidos()}" required="" class="form-control" readonly /></td>
+                            <td> <input type="text" name="txtNumero" value="${lista.getNumero()}" class="form-control"  readonly/></td>
+                            <td> <input type="text" name="txtPiso" value="${lista.getPiso()}" required="" class="form-control" readonly /> </td>
+                            <td> <input type="text" name="txtEstado" value="${lista.getEstado()}" required="" class="form-control" readonly /></td>
                            
                             <td>
-                                <button type="submit" value="${lista.getTrabajadoresId()}" name="btnSubmit" class="btn btn-warning">Actualizar</button>
+                                <button type="submit" value="${lista.getHabitacionId()}" name="btnSubmit" class="btn btn-warning">Actualizar</button>
                                 
                             </td>
                         </tr>
@@ -90,4 +89,3 @@
      
    
 </html>
-

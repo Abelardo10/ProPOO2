@@ -12,7 +12,7 @@
     </head>
     <body>
         
-        
+        <%@include file="navar.html" %>
 <%
     Clientes cliente=new Clientes();
      ArrayList<Clientes> lista=cliente.getClientes();
@@ -34,10 +34,7 @@
                             <th>Identificacion</th>
                             <th>Nombres</th>
                             <th>Apellidos</th>
-                            <th>Tipo_Documento</th>
-                            <th>Direccion</th>
-                            <th>Telefono</th>
-                            <th>Email</th>
+                            
                             <th>ClienteId</th>                                                       
                         </tr>
                     </thead>
@@ -48,16 +45,7 @@
                             <td> <input type="text" name="txtIdentificacion" value="${lista.getNum_documento()}" class="form-control"  readonly/></td>
                             <td> <input type="text" name="txtNombres" value="${lista.getNombres()}" required="" class="form-control" readonly /> </td>
                             <td> <input type="text" name="txtApellidos" value="${lista.getApellidos()}" required="" class="form-control" readonly /></td>
-                            <td> <select name="ddlTipoDocumento" id="ddlTipoDocumento" class="form-control"  >
-                                    <option>CC</option>
-                                    <option>CE</option>
-                                    <option>PASAPORTE</option>
-                                </select>
-                                
-                            </td>                  
-                            <td> <input type="text" name="txtDireccion" value="${lista.getDireccion()}" required="" class="form-control" readonly /> </td>
-                            <td> <input type="text" name="txtTelefono" value="${lista.getTelefono()}" required="" class="form-control" readonly /> </td>
-                            <td> <input type="text" name="txtEmail" value="${lista.getEmail()}" required="" class="form-control" readonly="" /> </td>                          
+                                                     
                             <td>
                                 <button type="submit" value="${lista.getClienteId()}" name="btnSubmit" class="btn btn-warning">Actualizar</button>
                                 

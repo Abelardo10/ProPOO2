@@ -17,7 +17,7 @@
         <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     </head>
     <body>
-        
+        <%@include file="navar.html" %>
         
 <%
     Trabajadores trabajadores=new Trabajadores();
@@ -40,14 +40,6 @@
                             <th>Identificación</th>
                             <th>Nombres</th>
                             <th>Apellidos</th>
-                            <th>Tipo_Documento</th>
-                            <th>Direccion</th>
-                            <th>Teléfono</th>
-                            <th>Email</th>
-                            <th>Sueldo</th>
-                            <th>Rol</th>
-                            <th>Login</th>
-                            <th>Password</th>
                             <th>TrabajadorId</th>                                                       
                         </tr>
                     </thead>
@@ -58,20 +50,7 @@
                             <td> <input type="text" name="txtNumDocumento" value="${lista.getNum_documento()}" class="form-control"  readonly/></td>
                             <td> <input type="text" name="txtNombres" value="${lista.getNombres()}" required="" class="form-control" readonly /> </td>
                             <td> <input type="text" name="txtApellidos" value="${lista.getApellidos()}" required="" class="form-control" readonly /></td>
-                            <td> <select name="ddlTipoDocumento" id="ddlTipoDocumento" class="form-control"  >
-                                    <option>CC</option>
-                                    <option>CE</option>
-                                    <option>PASAPORTE</option>
-                                </select>
-                                
-                            </td>                  
-                            <td> <input type="text" name="txtDireccion" value="${lista.getDireccion()}" required="" class="form-control" readonly /> </td>
-                            <td> <input type="number" name="txtTelefono" value="${lista.getTelefono()}" required="" class="form-control" readonly /> </td>
-                            <td> <input type="text" name="txtEmail" value="${lista.getEmail()}" required="" class="form-control" readonly="" /> </td>
-                            <td> <input type="number" name="txtSualdo" value="${lista.getSueldo()}" required="" class="form-control" readonly="" /> </td>
-                            <td> <input type="text" name="txtRol" value="${lista.getRol()}" required="" class="form-control" readonly="" /> </td>
-                            <td> <input type="text" name="txtLogin" value="${lista.getLogin()}" required="" class="form-control" readonly="" /> </td>
-                            <td> <input type="password" name="txtPassword" value="${lista.getPassword()}" required="" class="form-control" readonly="" /> </td>
+                           
                             <td>
                                 <button type="submit" value="${lista.getTrabajadoresId()}" name="btnSubmit" class="btn btn-warning">Actualizar</button>
                                 

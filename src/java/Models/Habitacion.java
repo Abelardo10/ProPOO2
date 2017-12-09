@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class Habitacion {
-    
+
     private int habitacionId;
     private String numero;
     private String piso;
@@ -76,32 +76,28 @@ public class Habitacion {
     public void setTipo_habitacion(String tipo_habitacion) {
         this.tipo_habitacion = tipo_habitacion;
     }
-    
-    
-      //============== METODOS =========================
-    
-    
-    Conexion conexion=new Conexion();
-    
-    Connection con=conexion.getConexion();
-    String query="";
-    
-    
-   public ArrayList<Habitacion> getHabitaciones() {
+
+    //============== METODOS =========================
+    Conexion conexion = new Conexion();
+
+    Connection con = conexion.getConexion();
+    String query = "";
+
+    public ArrayList<Habitacion> getHabitaciones() {
         ArrayList<Habitacion> lista;
-        
+
         lista = new ArrayList<Habitacion>();
-        
-        Habitacion habitaciones=new Habitacion();
-        
-        query ="select h.habitacionId, "
-                + "h.numero, "
-                + "h.piso, "
-                + "h.caracteristicas, "
-                + "h.precio_diario, "
-                + "h.estado, "
-                + "h.tipo_habitacion "
-                + "from habitacion h";
+
+        Habitacion habitaciones = new Habitacion();
+
+        query = "select habitacionId, "
+                + "numero, "
+                + "piso, "
+                + "caracteristicas, "
+                + "precio_diario, "
+                + "estado, "
+                + "tipo_habitacion "
+                + "from habitacion";
 
         try {
             PreparedStatement st = con.prepareStatement(query);
@@ -109,30 +105,94 @@ public class Habitacion {
             ResultSet rs = st.executeQuery();
 
             while (rs.next()) {
-                habitaciones.setHabitacionId(rs.getInt("habitacionId"));  
+                habitaciones = new Habitacion();
+                habitaciones.setHabitacionId(rs.getInt("habitacionId"));
                 habitaciones.setNumero(rs.getString("numero"));
                 habitaciones.setPiso(rs.getString("piso"));
                 habitaciones.setCaracteristicas(rs.getString("caracteristicas"));
                 habitaciones.setPrecio_diario(rs.getString("precio_diario"));
                 habitaciones.setEstado(rs.getString("estado"));
                 habitaciones.setTipo_habitacion(rs.getString("tipo_habitacion"));
-                
+
                 lista.add(habitaciones);
             }
 
         } catch (Exception e) {
-            lista=null;            
+            lista = null;
         }
-         return lista;        
+        return lista;
+    }
+    
+    /**
+     * Obtiene un objeto habitacion con la informacion de un piso que
+     * concuerde con la habitacionId
+     *
+     * @param habitacionId
+     * @return
+     */
+    public Habitacion getHabitacion(int habitacionId) {
+
+        Habitacion h = new Habitacion();
+
+        query = "SELECT [habitacionId]"
+                + ",[numero]"
+                + ",[piso]"
+                + ",[caracteristicas]"
+                + ",[precio_diario]"
+                + ",[estado]"
+                + ",[tipo_habitacion]"
+                + " FROM [Habitacion] WHERE habitacionId=" + habitacionId;
+
+        try {
+            PreparedStatement st = con.prepareStatement(query);
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                h.setHabitacionId(rs.getInt("habitacionId"));
+                h.setNumero(rs.getString("numero"));
+                h.setPiso(rs.getString("piso"));
+                h.setCaracteristicas(rs.getString("caracteristicas"));
+                h.setPrecio_diario(rs.getString("precio_diario"));
+                h.setEstado(rs.getString("estado"));
+                h.setTipo_habitacion(rs.getString("tipo_habitacion"));
+               
+            }
+
+        } catch (Exception e) {
+            h = null;
         }
-        
-                    
-   //=================INSERTAR DATOS  ====================================================
-        
+        return h;
+
+    }
+
+//=================INSERTAR DATOS  ====================================================
     public String insertar(Habitacion habitacion) {
-      
-        String result="";
         
+        String result = "";
+        try {
+        query = "select h.habitacionId, "
+                + "h.numero, "
+                + "h.piso "
+                + "from habitacion h"
+                + " WHERE h.numero=" + habitacion.getNumero()
+                + " and h.piso=" + habitacion.getPiso();
+        
+         PreparedStatement st = con.prepareStatement(query);
+
+            ResultSet rs = st.executeQuery();
+            int y = 0;
+            while (rs.next()) {
+               
+                y++;
+            }
+        if(y>0)
+        {
+            result="La habitacion ya  existe en este Piso";
+        }
+        else{
+        
+
         query = "INSERT INTO habitacion ("
                 + "numero,"
                 + "piso,"
@@ -142,9 +202,9 @@ public class Habitacion {
                 + "tipo_habitacion) "
                 + "VALUES (?,?,?,?,?,?)";
         try {
-            
+
             PreparedStatement pst = con.prepareStatement(query);
-            
+
             pst.setString(1, habitacion.getNumero());
             pst.setString(2, habitacion.getPiso());
             pst.setString(3, habitacion.getCaracteristicas());
@@ -155,21 +215,27 @@ public class Habitacion {
             int n = pst.executeUpdate();
 
             if (n != 0) {
-               result="Registro Exitoso";
-            } 
-            else { result="No se inserto Correctamente";}
-        } catch (Exception e) {
-            result="Fallo la Operacion";
+                result = "Registro Exitoso";
+            } else {
+                result = "No se inserto Correctamente";
+            }
+            
         }
-        return result; 
+         catch (Exception e) {
+            result = "Fallo la Operacion";
+        }
+        }
+           
+        } catch (Exception e) {
+        }
+        
+        return result;
     }
-            
-            
-            
-     //=======================ACTUALIZAR DATOS===============================================
-    public String actualizar(int HabitacionId,Habitacion datosHabitacion) {
-      
-        String result="";
+
+    //=======================ACTUALIZAR DATOS===============================================
+    public String actualizar(int HabitacionId, Habitacion datosHabitacion) {
+
+        String result = "";
         query = "UPDATE habitacion set "
                 + "numero=?, "
                 + "piso=?, "
@@ -183,36 +249,35 @@ public class Habitacion {
             PreparedStatement pst = con.prepareStatement(query);
 
             pst.setString(1, datosHabitacion.getNumero());
-            pst.setString(2, datosHabitacion.getPiso());  
+            pst.setString(2, datosHabitacion.getPiso());
             pst.setString(3, datosHabitacion.getCaracteristicas());
             pst.setString(4, datosHabitacion.getPrecio_diario());
             pst.setString(5, datosHabitacion.getEstado());
             pst.setString(6, datosHabitacion.getTipo_habitacion());
-            
+
             pst.setInt(7, HabitacionId);
-            
+
             int n = pst.executeUpdate();
 
-            if (n>0) {
-               result="Se Actualizo Correctamente";
-            } 
+            if (n > 0) {
+                result = "Se Actualizo Correctamente";
+            }
         } catch (Exception e) {
-            
-            result="No se actualizo";
+
+            result = "No se actualizo";
         }
-        return result; 
-    } 
-                   
-   
+        return result;
+    }
+
     //=========================VERIFICA si hay habitaciones Disponibles=============================================
-       public ArrayList<Habitacion> getHabitacionesDisponible(String tipo_habitacion) {
+    public ArrayList<Habitacion> getHabitacionesDisponible(String tipo_habitacion) {
         ArrayList<Habitacion> lista;
-        
+
         lista = new ArrayList<Habitacion>();
-        
-        Habitacion habitaciones=new Habitacion();
-        
-        query ="select h.habitacionId, "
+
+        Habitacion habitaciones = new Habitacion();
+
+        query = "select h.habitacionId, "
                 + "h.numero, "
                 + "h.piso, "
                 + "h.caracteristicas, "
@@ -220,7 +285,7 @@ public class Habitacion {
                 + "h.estado, "
                 + "h.tipo_habitacion "
                 + "from habitacion h "
-                + "where tipo_habitacion="+tipo_habitacion+" "
+                + "where tipo_habitacion=" + tipo_habitacion + " "
                 + "and estado='Disponible'";
 
         try {
@@ -229,21 +294,21 @@ public class Habitacion {
             ResultSet rs = st.executeQuery();
 
             while (rs.next()) {
-                habitaciones.setHabitacionId(rs.getInt("habitacionId"));  
+                habitaciones.setHabitacionId(rs.getInt("habitacionId"));
                 habitaciones.setNumero(rs.getString("numero"));
                 habitaciones.setPiso(rs.getString("piso"));
                 habitaciones.setCaracteristicas(rs.getString("caracteristicas"));
                 habitaciones.setPrecio_diario(rs.getString("precio_diario"));
                 habitaciones.setEstado(rs.getString("estado"));
                 habitaciones.setTipo_habitacion(rs.getString("tipo_habitacion"));
-                
+
                 lista.add(habitaciones);
             }
 
         } catch (Exception e) {
-            lista=null;            
+            lista = null;
         }
-         return lista;        
-        }
-    
+        return lista;
+    }
+
 }

@@ -14,8 +14,9 @@ public final class TablaClientes_jsp extends org.apache.jasper.runtime.HttpJspBa
   private static java.util.List<String> _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants = new java.util.ArrayList<String>(2);
     _jspx_dependants.add("/header.html");
+    _jspx_dependants.add("/navar.html");
   }
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
@@ -76,7 +77,48 @@ public final class TablaClientes_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        \n");
-      out.write("        \n");
+      out.write("        ");
+      out.write("\n");
+      out.write("  <nav class=\"navbar navbar-inverse\">\n");
+      out.write("  <div class=\"container-fluid\">\n");
+      out.write("    <div class=\"navbar-header\">\n");
+      out.write("      <a class=\"navbar-brand\" href=\"#\">Hotel Summer</a>\n");
+      out.write("    </div>\n");
+      out.write("    <ul class=\"nav navbar-nav\">\n");
+      out.write("      <li class=\"active\"><a href=\"index.jsp\">Home</a></li>\n");
+      out.write("      <li class=\"dropdown\">\n");
+      out.write("          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Clientes <span class=\"caret\"></span></a>\n");
+      out.write("          <ul class=\"dropdown-menu\">\n");
+      out.write("            <li><a href=\"RegistrarCliente.jsp\">Registrar</a></li>\n");
+      out.write("            <li><a href=\"TablaClientes.jsp\">Actualizar</a></li>       \n");
+      out.write("          </ul>\n");
+      out.write("        </li>\n");
+      out.write("       <li class=\"dropdown\">\n");
+      out.write("          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Trabajadores <span class=\"caret\"></span></a>\n");
+      out.write("          <ul class=\"dropdown-menu\">\n");
+      out.write("            <li><a href=\"RegistrarTrabajadores.jsp\">Registrar</a></li>\n");
+      out.write("            <li><a href=\"TablaTrabajador.jsp\">Actualizar</a></li>       \n");
+      out.write("          </ul>\n");
+      out.write("        </li>\n");
+      out.write("        <li class=\"dropdown\">\n");
+      out.write("          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Productos <span class=\"caret\"></span></a>\n");
+      out.write("          <ul class=\"dropdown-menu\">\n");
+      out.write("            <li><a href=\"RegistrarProducto.jsp\">Registrar</a></li>\n");
+      out.write("            <li><a href=\"TablaProducto.jsp\">Actualizar</a></li>       \n");
+      out.write("          </ul>\n");
+      out.write("        </li>\n");
+      out.write("      <li><a href=\"#\">Registro Reservas</a></li>\n");
+      out.write("      <li><a href=\"#\">Pedidos</a></li>\n");
+      out.write("      <li><a href=\"#\">Reportes</a></li>\n");
+      out.write("    </ul>\n");
+      out.write("    <ul class=\"nav navbar-nav navbar-right\">\n");
+      out.write("      <li><a href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> Sign Up</a></li>\n");
+      out.write("      <li><a href=\"#\"><span class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\n");
+      out.write("    </ul>\n");
+      out.write("  </div>\n");
+      out.write("</nav> \n");
+      out.write("\n");
+      out.write('\n');
 
     Clientes cliente=new Clientes();
      ArrayList<Clientes> lista=cliente.getClientes();

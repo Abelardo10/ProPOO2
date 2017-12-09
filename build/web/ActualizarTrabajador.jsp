@@ -21,7 +21,6 @@
         <div>
             <%@include file="navar.html" %>  
         </div>
-        
          <%
              Trabajadores t=new Trabajadores();
              int id=Integer.parseInt(request.getParameter("btnSubmit"));
@@ -29,6 +28,7 @@
        
               pageContext.setAttribute("t", t);
         %>
+        <form id="formActualizarTrabajadores" method="POST" action="Trabajadores">
 
         <div class="contnt-header">
             <h1 style="text-align:center">
@@ -57,7 +57,7 @@
 
                 </td>
                 <td Width="75%">
-                    <form id="formActualizarTrabajadores" method="POST" action="Trabajadores">
+                    
 
                         <div class="content"> <!-- Inici del Primer panel -->
                             <div class="row">
@@ -93,6 +93,9 @@
                                                 <div class="form-group">
                                                     <input type="number" name="txtTelefono" required="Campo requerido" class="form-control" value="${t.getTelefono()}" />
                                                 </div> 
+                                                 <div class="form-group">
+                            <input type="submit" value="Actualizar" name="btnSubmit"  class="btn btn-primary" Width="50%"/>
+                        </div>
 
                                             </div>
                                             <div class="content"> <!-- Inici del segundo panel -->
@@ -127,9 +130,7 @@
                                 </div>
                             </div> <!--fin de la clase box-body -->
                         </div>
-                         <div class="form-group">
-                            <input type="submit" value="Actualizar" name="btnSubmit"  class="btn btn-primary" Width="50%"/>
-                        </div>
+                        
                         <script>
                             $(document).ready(function () {
 
