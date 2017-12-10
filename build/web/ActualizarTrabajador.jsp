@@ -15,9 +15,6 @@
         <title>Atualizar Trabajadores</title>
     </head>
     <body style="overflow-y: hidden;">
-
-
-
         <div>
             <%@include file="navar.html" %>  
         </div>
@@ -34,13 +31,14 @@
 
                 <div class="panel panel-primary">
                     <div class="panel-heading">Actualizar Trabajador</div>
-                    <div class="panel-body" style="height:400px; overflow-y: scroll; ">
+                    <div class="panel-body" style="height:450px; overflow-y: scroll; ">
                         <div class="row">
                             <div class="col">
                                 <div class="col-lg-12" style="margin-top: 0em;"> <!-- Primer panel-->
 
                                     <div>            
                                         <div class="col-lg-2"> <input type="text" name="txtTrabajadoresId" value="${t.getTrabajadoresId()}" class="form-control"  readonly=""/></div>
+                                    Id del Trabajador:
                                     </div>
                                 </div>
                             </div>
@@ -48,16 +46,18 @@
                             <div class="col-lg-12" style="margin-top: 1em;"> <!-- Primer panel-->
                                 <div class="col">
                                     <div class="col-lg-6">
-
                                         <div class="form-group">
+                                            Nombres:
                                             <input type="text" name="txtNombres" required="Campo requerido" class="form-control" value="${t.getNombres()}" />
                                         </div>  
 
                                         <div class="form-group">
+                                            Apellidos:
                                             <input type="text" name="txtApellidos" required="Campo requerido" class="form-control" value="${t.getApellidos()}"/>
                                         </div> 
 
-                                        <div>
+                                         <div class="form-group">
+                                            Tipo de Documento:
                                             <select name="ddlTipoDocumento" class="form-control">
                                                 <option>CC</option>
                                                 <option>CE</option>
@@ -66,50 +66,61 @@
                                         </div>                    
 
                                         <div class="form-group" style="margin-top: 1em;">
+                                            Identificación:
                                             <input type="text" name="txtNumDocumento" required="Campo requerido" class="form-control" value="${t.getNum_documento()}" />
                                         </div>  
 
                                         <div class="form-group">
+                                            Dirección:
                                             <input type="text" name="txtDireccion" required="Campo requerido" class="form-control" value="${t.getDireccion()}" />
                                         </div> 
 
                                         <div class="form-group">
+                                            Teléfono:
                                             <input type="number" name="txtTelefono" required="Campo requerido" class="form-control" value="${t.getTelefono()}" />
                                         </div> 
-                                       
+                                       <div class="form-group">
+                                            <input type="submit" value="Actualizar" name="btnSubmit"  class="btn btn-primary" Width="50%"/>
+                                        </div>
 
                                     </div>
                                 </div>
                                 <div class="col"> <!-- Inici del tercera columna -->
                                     <div class="col-lg-6">
                                         <div class="form-group">
+                                            Email:
                                             <input type="email" name="txtEmail" required="Campo requerido" class="form-control" value="${t.getEmail()}" />
                                         </div>                              
 
                                         <div class="form-group">
+                                            Salario:
                                             <input type="number" name="txtSueldo" required="Campo requerido" class="form-control" value="${t.getSueldo()}" />
                                         </div>  
 
                                         <div class="form-group">
+                                            Rol:
                                             <input type="text" name="txtRol" required="Campo requerido" class="form-control" value="${t.getRol()}" />
                                         </div> 
 
                                         <div class="form-group">
+                                            Usuario:
                                             <input type="text" name="txtLogin" required="Campo requerido" class="form-control" value="${t.getLogin()}" />
                                         </div> 
                                         <div class="form-group">
+                                            Password:
                                             <input type="password" name="txtPassword" required="Campo requerido" class="form-control" value="${t.getPassword()}" />
                                         </div>
                                     </div>
                                 </div> <!--fin de la columna 3 box-body -->
 
                             </div>
+                                        
                         </div>
-                                         <div class="form-group">
-                                            <input type="submit" value="Actualizar" name="btnSubmit"  class="btn btn-primary" Width="50%"/>
-                                        </div>
+                                        
+                                         
                     </div>
                 </div>
+                                        
             </div> <!--fin de la clase box-body -->
 
             <script>

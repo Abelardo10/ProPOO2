@@ -63,7 +63,6 @@ public class Pago {
     }
     
     
-    
      //============== METODOS =========================
     
     
@@ -95,7 +94,6 @@ public class Pago {
                                                           
                 lista.add(pago);
             }
-           
 
         } catch (Exception e) {
             lista=null;            
@@ -150,10 +148,7 @@ public class Pago {
             pst.setString(1, datosPago.getTotal_pago());
             pst.setString(2, datosPago.getFecha_emision());  
             pst.setString(3, datosPago.getFecha_pago());
-            pst.setInt(4, pagoId);  
- 
-          
-          
+            pst.setInt(4, pagoId); 
 
             int n = pst.executeUpdate();
 

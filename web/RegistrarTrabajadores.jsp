@@ -71,7 +71,7 @@
                                         </div>                              
 
                                         <div class="form-group">
-                                            <input type="number" name="txtSueldo" required="Campo requerido" class="form-control" placeholder="Sueldo" />
+                                            <input type="number" name="txtSueldo" required="Campo requerido" class="form-control" placeholder="Salario" />
                                         </div>  
 
                                         <div class="form-group">

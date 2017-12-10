@@ -59,13 +59,14 @@ public class HabitacionController extends HttpServlet {
             case "Actualizar":
                 
                 habitacion = new Habitacion();
-
+                habitacion.setHabitacionId(Integer.parseInt(request.getParameter("txtHabitacionId")));
                 habitacion.setNumero(request.getParameter("txtNumero"));
                 habitacion.setPiso(request.getParameter("txtPiso"));
                 habitacion.setCaracteristicas(request.getParameter("txtCaracteristicas"));
                 habitacion.setPrecio_diario(request.getParameter("txtPrecioDiario"));
                 habitacion.setEstado(request.getParameter("txtEstado"));
                 habitacion.setTipo_habitacion(request.getParameter("txtTipoHabitacion"));
+                
                               
 
                 result = habitacion.actualizar(habitacion.getHabitacionId(), habitacion);

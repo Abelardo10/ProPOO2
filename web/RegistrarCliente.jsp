@@ -5,17 +5,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="header.html" %>
         <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
- 
-
-        <title>Registrar Cliente</title>
+        <title>Registro de Clientes</title>
     </head>
     <body style="overflow-y: hidden;">  
         <form id="formCliente" method="POST" action="Clientes">
         <div>
         <%@include file="navar.html" %>  
         </div>
-        
-    
         <div class="container" style="margin-top: 3em; height:500px; overflow-y: scroll">
             
             <div class="row" style="margin-top: 2em;">
