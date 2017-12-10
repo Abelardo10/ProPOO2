@@ -23,8 +23,8 @@
             <div class="container" style="width: 50%">
 
                 <div class="panel panel-primary">
-                    <div class="panel-heading">Registro de Productos</div>
-                    <div class="panel-body" style="height:400px; overflow-y: scroll; ">
+                    <div class="panel-heading">Registro de Productos y/o Servicios</div>
+                    <div class="panel-body" style="height:450px; overflow-y: scroll; ">
                         <div class="row">
                             <div class="col-lg-12" style="margin-top: 2em;"> <!-- Primer panel-->
                                 <div class="box box-primary">

@@ -39,6 +39,7 @@
                             <th>Número de Habitación</th>
                             <th>Piso de la Habitación</th>
                             <th>Estado</th>
+                            <th>Tipo de Habitacion</th>
                             <th>HabitacionId</th>                                                       
                         </tr>
                     </thead>
@@ -48,7 +49,8 @@
                         <tr>
                             <td> <input type="text" name="txtNumero" value="${lista.getNumero()}" class="form-control"  readonly/></td>
                             <td> <input type="text" name="txtPiso" value="${lista.getPiso()}" required="" class="form-control" readonly /> </td>
-                            <td> <input type="text" name="txtEstado" value="${lista.getEstado()}" required="" class="form-control" readonly /></td>
+                            <td> <input type="text" name="ddlEstado" value="${lista.getEstado()}" required="" class="form-control" readonly /></td>
+                            <td> <input type="text" name="ddlTipoHabitacion" value="${lista.getTipo_habitacion()}" required="" class="form-control" readonly /></td>
                            
                             <td>
                                 <button type="submit" value="${lista.getHabitacionId()}" name="btnSubmit" class="btn btn-warning">Actualizar</button>
@@ -58,13 +60,7 @@
                          </c:forEach> 
                     </tbody>
                 </table>
-
-                
-                
-            </div>            
-   
-                
-                    
+            </div>   
         </div>
        </form>
         <script>
@@ -76,7 +72,6 @@
                 if(respuesta==""){}
                 else{alert(respuesta);}
                 
-                
                 } catch (e) {
 
                 }               
@@ -86,6 +81,4 @@
   
     </body>
      <%@include file="header.html" %>
-     
-   
 </html>

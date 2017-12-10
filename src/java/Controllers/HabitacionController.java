@@ -44,8 +44,8 @@ public class HabitacionController extends HttpServlet {
                 habitacion.setPiso(request.getParameter("txtPiso"));
                 habitacion.setCaracteristicas(request.getParameter("txtCaracteristicas"));
                 habitacion.setPrecio_diario(request.getParameter("txtPrecioDiario"));
-                habitacion.setEstado(request.getParameter("txtEstado"));
-                habitacion.setTipo_habitacion(request.getParameter("txtTipoHabitacion"));                
+                habitacion.setEstado(request.getParameter("ddlEstado"));
+                habitacion.setTipo_habitacion(request.getParameter("ddlTipoHabitacion"));                
 
                 String result = habitacion.insertar(habitacion);
 
@@ -64,11 +64,9 @@ public class HabitacionController extends HttpServlet {
                 habitacion.setPiso(request.getParameter("txtPiso"));
                 habitacion.setCaracteristicas(request.getParameter("txtCaracteristicas"));
                 habitacion.setPrecio_diario(request.getParameter("txtPrecioDiario"));
-                habitacion.setEstado(request.getParameter("txtEstado"));
-                habitacion.setTipo_habitacion(request.getParameter("txtTipoHabitacion"));
+                habitacion.setEstado(request.getParameter("ddlEstado"));
+                habitacion.setTipo_habitacion(request.getParameter("ddlTipoHabitacion"));
                 
-                              
-
                 result = habitacion.actualizar(habitacion.getHabitacionId(), habitacion);
 
                 // para crear variables que se envian por el response

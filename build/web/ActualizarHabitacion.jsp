@@ -68,13 +68,21 @@
                                         <input type="text" name="txtPrecioDiario" required="Campo requerido" class="form-control" value="${habitacion.getPrecio_diario()}" />
                                     </div>   
                                     <div class="form-group">
-                                        Estado:
-                                        <input type="text" name="txtEstado" required="Campo requerido" class="form-control" value="${habitacion.getEstado()}" />
-                                    </div> 
-                                    <div class="form-group">
-                                        Tipo:
-                                        <input type="text" name="txtTipoHabitacion" required="Campo requerido" class="form-control" value="${habitacion.getTipo_habitacion()}" />
-                                    </div> 
+                                            Estado:
+                                            <select name="ddlEstado" class="form-control">
+                                                <option>Disponible</option>
+                                                <option>Ocupada</option>
+                                                <option>Limpieza</option>
+                                            </select> 
+                                        </div>   
+                                     <div class="form-group">
+                                            Tipo:
+                                            <select name="ddlTipoHabitacion" class="form-control">
+                                                <option>Sencilla</option>
+                                                <option>Doble</option>
+                                                <option>Triple</option>
+                                            </select> 
+                                        </div>
 
 
                                     <div class="form-group">

@@ -24,7 +24,7 @@
 
                 <div class="panel panel-primary">
                     <div class="panel-heading">Registro de Habitaciones</div>
-                    <div class="panel-body" style="height:400px; overflow-y: scroll; ">
+                    <div class="panel-body" style="height:450px; overflow-y: scroll; ">
                         <div class="row">
 
                             <div class="col-lg-12" style="margin-top: 1em;"> <!-- Primer panel-->
@@ -49,11 +49,20 @@
                                                 <input type="text" name="txtPrecioDiario" required="Campo requerido" class="form-control" placeholder="Precio Diario" />
                                             </div>   
                                             <div class="form-group">
-                                                <input type="text" name="txtEstado" required="Campo requerido" class="form-control" placeholder="Estado" />
-                                            </div> 
+                                            Estado:
+                                            <select name="ddlEstado" class="form-control">
+                                                <option>Disponible</option>
+                                                <option>Ocupada</option>
+                                            </select> 
+                                        </div>  
                                             <div class="form-group">
-                                                <input type="text" name="txtTipoHabitacion" required="Campo requerido" class="form-control" placeholder="Tipo de Habitación" />
-                                            </div> 
+                                            Tipo de Habitación:
+                                            <select name="ddlTipoHabitacion" class="form-control">
+                                                <option>Sencilla</option>
+                                                <option>Doble</option>
+                                                <option>Triple</option>
+                                            </select> 
+                                        </div>
 
 
                                             <div class="form-group">

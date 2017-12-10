@@ -23,7 +23,7 @@
 
                 <div class="panel panel-primary">
                     <div class="panel-heading">Registro de Trabajadores</div>
-                    <div class="panel-body" style="height:400px; overflow-y: scroll; ">
+                    <div class="panel-body" style="height:450px; overflow-y: scroll; ">
                         <div class="row">
                             <div class="col">
                                 <div class="col-lg-6" style="margin-top: 2em;"> <!-- Primer panel-->                                

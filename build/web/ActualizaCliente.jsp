@@ -45,7 +45,8 @@
                         <option>CC</option>
                         <option>CE</option>
                         <option>Pasaporte</option>
-                    </select> </div>
+                    </select> 
+                </div>
             </div>
             
             <div class="row" style="margin-top: 2em;">
